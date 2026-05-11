@@ -319,21 +319,6 @@ ROS 2: `Humble` | Ubuntu: `22.04`
 
 ---
 
-## Submission Checklist
-
-- [x] `env/leap_grasp_env.py` — complete and tested
-- [x] `train/train_ppo.ipynb` — runnable on Colab
-- [x] Learning curve in `assets/`
-- [x] Grasp demo GIF/MP4 in `assets/`
-- [x] Reward ablation (R1/R2/R3 post-hoc) — complete, results in table above
-- [x] Ablation curve in `assets/`
-- [ ] ROS 2 package builds with `colcon build`
-- [ ] RViz2 demo recording in `assets/`
-- [ ] `report/report.pdf` — complete
-- [ ] Google Form submitted
-
----
-
 ## Author
 
 **Dhyan Dalwadi**
