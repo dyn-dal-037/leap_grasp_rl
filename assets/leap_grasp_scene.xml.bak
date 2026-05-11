@@ -1,0 +1,40 @@
+<mujoco model="leap_grasp_scene">
+
+  <compiler meshdir="sub_assets/" angle="radian" autolimits="true"/>
+
+  <option timestep="0.005" gravity="0 0 -9.81" integrator="implicitfast"/>
+
+  <default>
+    <joint armature="0.01" damping="0.2" limited="true"/>
+    <geom condim="4" friction="1.0 0.005 0.0001" solimp="0.9 0.95 0.001" solref="0.02 1"/>
+  </default>
+
+  <worldbody>
+
+    <!-- Table -->
+    <body name="table" pos="0 0 0.4">
+      <geom name="table_top" type="box" size="0.3 0.3 0.015"
+            rgba="0.7 0.6 0.5 1" contype="1" conaffinity="1"/>
+    </body>
+
+    <!-- Target object: small cube, spawns at TABLE_Z=0.455 -->
+    <body name="object" pos="0.0 0.0 0.455">
+      <freejoint name="object_joint"/>
+      <geom name="object_geom" type="box" size="0.025 0.025 0.025"
+            mass="0.05" rgba="0.9 0.2 0.2 1"
+            condim="4" friction="1.2 0.005 0.0001"/>
+      <site name="object_site" size="0.005" rgba="1 1 0 0"/>
+    </body>
+
+    <!-- Hand mount: positions palm ~12 cm above object, fingers pointing down -->
+    <body name="hand_mount" pos="0.0 0.0 0.65" euler="0 3.14159 0">
+      <include file="right_hand.xml"/>
+    </body>
+
+  </worldbody>
+
+  <contact>
+    <exclude body1="hand_mount" body2="table"/>
+  </contact>
+
+</mujoco>
